@@ -1,0 +1,23 @@
+# Dockerfile for face container on ubuntu
+
+FROM ubuntu
+LABEL Maintainer="Richard Ryu <richard.ryu@berkeley.edu>" \
+      Description="Container Face Detection on ubuntu."
+
+# Install Packages
+RUN apt update
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt install -y python-opencv python-pip vim-tiny mosquitto-clients libopencv-dev
+
+RUN pip install paho-mqtt
+
+EXPOSE 1883
+
+WORKDIR /
+
+COPY face.py
+
+CMD python face.py
+

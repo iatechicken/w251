@@ -1,0 +1,22 @@
+# Dockerfile for Forwarder on Alpine
+
+FROM alpine
+LABEL Maintainer="Richard Ryu <richard.ryu@berkeley.edu>" \
+      Description="Container Mostquitto on Alpine."
+
+# Install Packages
+RUN apk update && apk add \
+    mosquitto \
+    mosquitto-clients \
+    python \
+    py-pip \
+    vim
+
+RUN python -m pip install --upgrade pip
+RUN python -m pip install paho-mqtt
+
+EXPOSE 1883
+
+WORKDIR /
+COPY forward.py .
+CMD python forward.py 
