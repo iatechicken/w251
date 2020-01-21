@@ -17,7 +17,7 @@ EXPOSE 1883
 
 WORKDIR /
 
-COPY face.py
+COPY face.py .
 
 CMD python face.py
 
