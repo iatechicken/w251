@@ -1,0 +1,13 @@
+# Dockerfile for cloud broker container
+
+FROM alpine
+LABEL Maintainer="Richard Ryu <richard.ryu@berkeley.edu>" \
+      Description="cloud broker container on alpine."
+
+# Install Packages
+RUN apk update && apk add mosquitto
+
+EXPOSE 1883
+
+CMD /usr/sbin/mosquitto
+

@@ -5,9 +5,9 @@ HOST = "tx-broker"
 PORT = 1883
 TOPIC = "tx-face"
 
-R_HOST = ""
+R_HOST = "169.61.83.247"
 R_PORT = 1883
-R_TOPIC = "ibm-face"
+R_TOPIC = "c-face"
 
 def on_connect_local(client, userdata, flags, rc):
     print("Local Connect with rc: ", str(rc))
