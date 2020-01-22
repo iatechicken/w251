@@ -16,7 +16,7 @@ face_client.connect(HOST, PORT)
 
 face_cascade = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 
-cap = cv.VideoCapture(1)
+cap = cv.VideoCapture(0)
 while(True):
     # Capture fxf
     ret, frame = cap.read()

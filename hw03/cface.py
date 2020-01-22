@@ -4,7 +4,7 @@ import math
 
 import paho.mqtt.client as mqtt
 
-HOST = "169.61.83.247"
+HOST = "mqtt.eclipse.org"
 PORT = 1883
 TOPIC = "c-face"
 
@@ -28,10 +28,10 @@ def on_message(client, userdata, msg):
 
 cloud_client = mqtt.Client()
 cloud_client.on_connect = on_connect
-client.connect(HOST, PORT, 60)
+cloud_client.connect(HOST, PORT, 60)
 print("Cloud Connect")
 cloud_client.on_message = on_message
-client.loop_forever()
+cloud_client.loop_forever()
 
 
 

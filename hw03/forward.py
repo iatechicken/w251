@@ -5,7 +5,7 @@ HOST = "mqtt.eclipse.org"
 PORT = 1883
 TOPIC = "tx-face"
 
-R_HOST = "169.61.83.247"
+R_HOST = "mqtt.eclipse.org"
 R_PORT = 1883
 R_TOPIC = "c-face"
 
