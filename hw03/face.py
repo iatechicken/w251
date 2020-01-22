@@ -14,9 +14,9 @@ face_client = mqtt.Client()
 face_client.on_connect = on_connect
 face_client.connect(HOST, PORT)
 
-face_cascade = cv.CascadeClassifier("/usr/share/opencv/haarcascades/haarcascade_frontalface_default.xml")
+face_cascade = cv.CascadeClassifier("/usr/share/opencv4/haarcascades/haarcascade_frontalface_default.xml")
 
-cap = cv.VideoCapture(0)
+cap = cv.VideoCapture(1)
 
 while(True):
     # Capture fxf
@@ -30,8 +30,13 @@ while(True):
 
         print("\nFace Detect Type: ", face.dtype)
 
-        rc,png = cv2.imencode('.png', face)
+        rc,png = cv.imencode('.png', face)
 
         msg = png.tobytes()
         face_client.publish(TOPIC, payload=msg, qos=0, retain=False)
         print("Message Sent from Face Container!")
+
+    if cv.waitKey(1) == 27:
+        break
+capture.release()
+cv.destroyAllWindows()
