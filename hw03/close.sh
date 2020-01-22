@@ -6,3 +6,5 @@ docker kill tx-face
 docker rm tx-broker
 docker rm tx-forward
 docker rm tx-face
+
+docker network rm tx-brdige

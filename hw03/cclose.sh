@@ -5,3 +5,5 @@ docker kill c-broker
 
 docker rm c-face
 docker rm c-broker
+
+docker network rm cbridge
