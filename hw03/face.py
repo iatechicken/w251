@@ -7,7 +7,7 @@ HOST="tx-broker"
 PORT=1883
 TOPIC="tx-face"
 
-def on_connect(clnt, user, flags, rc):
+def on_connect(client, user, flags, rc):
     print("Connect with rc:" + str(rc))
 
 face_client = mqtt.Client()
@@ -16,7 +16,7 @@ face_client.connect(HOST, PORT)
 
 face_cascade = cv.CascadeClassifier("/usr/share/opencv/haarcascades/haarcascade_frontalface_default.xml")
 
-cap = cv.VideoCapture(1)
+cap = cv.VideoCapture(0)
 
 while(True):
     # Capture fxf
@@ -35,5 +35,3 @@ while(True):
         msg = png.tobytes()
         face_client.publish(TOPIC, payload=msg, qos=0, retain=False)
         print("Message Sent from Face Container!")
-
-cv.destroyAllWindows()

@@ -1,10 +1,10 @@
 # Dockerfile for broker container
-From alpine
+FROM alpine
 LABEL Maintainer="Richard Ryu <richard.ryu@berkeley.edu>" \
       Description="Broker Container on Alpine."
 
 # Install Packages
-Run apk update && apk add mosquitto
+RUN apk update && apk add mosquitto
 
 EXPOSE 1883
 
