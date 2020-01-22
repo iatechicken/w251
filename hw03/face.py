@@ -3,7 +3,7 @@ import cv2 as cv
 
 import paho.mqtt.client as mqtt
 
-HOST="tx-broker"
+HOST="mqtt.eclipse.org"
 PORT=1883
 TOPIC="tx-face"
 
@@ -14,10 +14,9 @@ face_client = mqtt.Client()
 face_client.on_connect = on_connect
 face_client.connect(HOST, PORT)
 
-face_cascade = cv.CascadeClassifier("/usr/share/opencv4/haarcascades/haarcascade_frontalface_default.xml")
+face_cascade = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 cap = cv.VideoCapture(1)
-
 while(True):
     # Capture fxf
     ret, frame = cap.read()
@@ -25,10 +24,12 @@ while(True):
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    img = cv.imshow('frame', gray)
     for (x,y,w,h) in faces:
         face = frame[y:y+h, x:x+w]
+        cv.imshow("face", face)
 
-        print("\nFace Detect Type: ", face.dtype)
+        print("Face Detect Type: ", face.dtype)
 
         rc,png = cv.imencode('.png', face)
 
@@ -38,5 +39,5 @@ while(True):
 
     if cv.waitKey(1) == 27:
         break
-capture.release()
+cap.release()
 cv.destroyAllWindows()

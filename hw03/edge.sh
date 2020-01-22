@@ -11,7 +11,7 @@ docker build -t tx-forward -f Dockerfile.forward .
 docker build -t tx-face -f Dockerfile.face .
 
 # Running Broker Docker
-docker run -d --name tx-broker -p 1883:1883 --network tx-bridge tx-broker
+docker run -d --name tx-broker -p 1883 --network tx-bridge tx-broker
 
 # Running Forwarder Docker
 docker run -d --name tx-forward --network tx-bridge tx-forward

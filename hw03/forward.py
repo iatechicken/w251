@@ -1,7 +1,7 @@
 # need to comment and fill R_HOST
 import paho.mqtt.client as mqtt
 
-HOST = "tx-broker"
+HOST = "mqtt.eclipse.org"
 PORT = 1883
 TOPIC = "tx-face"
 

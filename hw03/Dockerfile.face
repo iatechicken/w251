@@ -17,7 +17,9 @@ EXPOSE 1883
 
 WORKDIR /
 
-COPY face.py .
+COPY face.py /face.py
 
-CMD python face.py
+COPY haarcascade_frontalface_default.xml /haarcascade_frontalface_default.xml
+
+CMD ["python", "/face.py"]
 
