@@ -26,7 +26,7 @@ We are training a Transformer-based Machine Translation Network on a small Engli
 
 ## Results
 
-![Training Results](/screenshot1.png)
+![Training Results](screenshot1.png)
 
 ## Questions
 
