@@ -42,21 +42,27 @@ We are training a Transformer-based Machine Translation Network on a small Engli
 4. Were your GPUs fully utilized?
 * All 3 GPUs were close to full utilization during the distributed training (mpirun job)
 * v100c
+
 ![v100c](v100c.png)
 * v100d
+
 ![v100d](v100d.png)
 
 5. Did you monitor network traffic (hint: apt install nmon ) ? Was network the bottleneck?
 * There were no clear indication of network bottleneck during the training. Network statistics were monitored through ```nmon```
+
 ![nmon](nmon.png)
 
 6. Take a look at the plot of the learning rate and then check the config file. Can you explan this setting?
 * The config file had the initial learning rate of 2.0 with "warmup_steps" of 8,000. If you observe the learning_rate graph, we can see the learning rate climb until the 8,000th step and start to decline afterwards. 
+
 ![6](6.png)
 
 7. How big was your training set (mb)? How many training lines did it contain?
 * The training set was 711mb for the 'de' version and 637mb for the 'en version. Both files had 4,562,102 lines.
+
 ![7](7.png)
+
 ![7b](7b.png)
 
 8. What are the files that a TF checkpoint is comprised of?
@@ -64,10 +70,12 @@ We are training a Transformer-based Machine Translation Network on a small Engli
 
 9. How big is your resulting model checkpoint (mb)?
 * The checkpoint was ~ 950mb big
+
 ![9](9.png)
 
 10. Remember the definition of a "step". How long did an average step take?
 * According to the training log, each step took about 1.4 seconds. Considering that we were working with 3 GPUs, we can assume that each step took about 0.46 seconds per GPU.
+
 ![10](10.png)
 
 11. How does that correlate with the observed network utilization between nodes?
