@@ -75,3 +75,10 @@ docker run --name subscriber -v "/root/w251/new_hw03":/hw03 -v "/mnt/face-app":/
 ```
 python3 /hw03/cloudface.py 169.61.83.248 /hw03-faces/
 ```
+
+
+* Quality of Service was set as 1 since it allows at least one message to be sent and relieve us from dealing with any failed messages.
+
+* for the MQTT topic, face_app was created from tx2.sh script and it was utilized to mount the volume for the subscriber container.
+
+* Link for the facial images stored in the IBM COS https://cloud.ibm.com/classic/storage/cloudobjectstorage/details#accountId=118882810
