@@ -35,6 +35,8 @@ Below is the configuration for our baseline model
 ...
 ```
 
-![baseline_model](frame50000.mp4)
+![baseline_model](frame50000.gif)
+
+[video download link](https://cos-week11.s3.us-east.cloud-object-storage.appdomain.cloud/frame50000.mp4)
 
 
