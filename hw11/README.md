@@ -18,9 +18,9 @@ Below is the configuration for our baseline model
     model.add(Dense(16, activation='sigmoid'))
     model.add(Dense(1))
     model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
-    return model```
+    return model
 
-```...
+...
     model = nnmodel(10)
 
 ...
@@ -32,7 +32,8 @@ Below is the configuration for our baseline model
             print("training model model")
             modelTrained = True
             model.fit(np.array(X_train),np.array(y_train).reshape(len(y_train),1), epochs = 10, batch_size=20)
-...```
+...
+```
 
 ![baseline_model](frame50000.mp4)
 
